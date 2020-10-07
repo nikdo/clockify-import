@@ -9,10 +9,12 @@
     "test": "NODE_OPTIONS='--experimental-vm-modules --es-module-specifier-resolution=node' jest"
   },
   "devDependencies": {
-    "jest": "^26.5.2"
+    "jest": "^26.5.2",
+    "sinon": "^9.2.0"
   },
   "dependencies": {
     "commander": "^6.1.0",
+    "dotenv": "^8.2.0",
     "moment": "^2.29.1"
   }
 }

@@ -1,15 +1,26 @@
-import config from './config.json'
+import sinon from 'sinon'
 import input from './input.json'
 import output from './output.json'
 import transformEntry from './transformEntry'
+
+const sandbox = sinon.createSandbox()
+
+beforeEach(() => {
+    sandbox.stub(process, 'env').value({ 'CLOCKIFY_PROJECT_ID': 'foo' })
+})
+
+afterEach(() => {
+    sandbox.restore()
+})
 
 it('transforms entry', () => {
     expect(transformEntry(input)).toEqual(output)
 })
 
-it('sets clockify project ID from config', () => {
+it('sets clockify project ID from env variable', () => {
+    sandbox.stub(process, 'env').value({ 'CLOCKIFY_PROJECT_ID': 'xy42' })
     expect(transformEntry(input))
-        .toHaveProperty('projectId', config.clockify.projectId)
+        .toHaveProperty('projectId', 'xy42')
 })
 
 it('keeps description', () => {

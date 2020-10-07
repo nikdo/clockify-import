@@ -1,6 +1,9 @@
+import dotenv from 'dotenv'
 import program from 'commander'
 import { readFile } from 'fs/promises'
 import parseInput from './parseInput'
+
+dotenv.config()
 
 program
     .version('1.0.0')
