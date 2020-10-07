@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import program from 'commander'
 import { readFile } from 'fs/promises'
 import parseInput from './parseInput'
+import postEntry from './postEntry'
 
 dotenv.config()
 
@@ -13,7 +14,7 @@ program
         readFile(filename)
             .then(data => JSON.parse(data))
             .then(json => parseInput(json))
-            .then(parsed => process.stdout.write(JSON.stringify(parsed, null, '  ')))
+            .then(entries => postEntry(entries[0]))
             .catch(e => console.error(e))
     })
     .parse(process.argv)
