@@ -1,0 +1,13 @@
+{
+  "name": "clockify-import",
+  "version": "1.0.0",
+  "description": "Imports Toggl tasks into Clockify",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
+  },
+  "devDependencies": {
+    "jest": "^26.5.2"
+  }
+}
