@@ -1,0 +1,12 @@
+{
+    "clockify": {
+        "workspaceId": "5f4d05ced23b5f1fed63e54e",
+        "projectId": "5f4d07052fbad01c81a8462c",
+        "userId": "5f59d83828087f5102f13195",
+        "tasks": {
+            "Design": "5f6c68dc60917a354952eaaf",
+            "Development": "5f56821c2f7c634ff73ddcfd",
+            "Non-development": "5f568235645f2329c9737be0"
+        }
+    }
+}

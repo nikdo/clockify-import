@@ -1,0 +1,25 @@
+{
+    "id": 1721601878,
+    "pid": 163534412,
+    "tid": null,
+    "uid": 1003118,
+    "description": "Creating lo-fi prototypes; Misc communication",
+    "start": "2020-10-07T18:30:05+02:00",
+    "end": "2020-10-07T19:00:05+02:00",
+    "updated": "2020-10-07T18:54:46+02:00",
+    "dur": 1800000,
+    "user": "Radek Matěj",
+    "use_stop": true,
+    "client": "Denizen",
+    "project": "Denizen MVP",
+    "project_color": "0",
+    "project_hex_color": "#e36a00",
+    "task": null,
+    "billable": 15.00,
+    "is_billable": true,
+    "cur": "EUR",
+    "tags": [
+        "design",
+        "ux"
+    ]
+}
