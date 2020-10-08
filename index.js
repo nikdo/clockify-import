@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
 import program from 'commander'
 import { readFile } from 'fs/promises'
-import parseInput from './parseInput'
-import pushEntries from './pushEntries'
+import parseInput from './src/parseInput'
+import pushEntries from './src/pushEntries'
 
 dotenv.config()
 

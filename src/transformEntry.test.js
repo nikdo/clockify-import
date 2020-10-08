@@ -1,6 +1,6 @@
 import sinon from 'sinon'
-import input from './input.json'
-import output from './output.json'
+import input from './test/input.json'
+import output from './test/output.json'
 import transformEntry from './transformEntry'
 
 const sandbox = sinon.createSandbox()

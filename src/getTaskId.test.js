@@ -1,4 +1,4 @@
-import config from './config.json'
+import config from '../config.json'
 import getTaskId from './getTaskId'
 
 it('returns Development task id given dev tag', () => {

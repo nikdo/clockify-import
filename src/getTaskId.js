@@ -1,4 +1,4 @@
-import config from './config.json'
+import config from '../config.json'
 
 export default tags => {
     if (tags.includes('dev')) {
