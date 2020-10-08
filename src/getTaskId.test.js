@@ -11,6 +11,11 @@ it('returns Design task id given ux tag', () => {
         .toEqual(config.clockify.tasks.Design)
 })
 
+it('returns Design task id given pm tag', () => {
+    expect(getTaskId(['grooming', 'pm']))
+        .toEqual(config.clockify.tasks.Design)
+})
+
 it('returns Non-development task id given no ux and dev tags', () => {
     expect(getTaskId(['administrative']))
         .toEqual(config.clockify.tasks["Non-development"])
