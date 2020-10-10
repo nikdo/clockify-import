@@ -17,7 +17,7 @@ Save response(s) to a file(s).
 Push report entries to Clockify:
 
 ```sh
-npm start -- toggl-report.json
+npm start -- push toggl-report.json
 ```
 
 ## TODO
