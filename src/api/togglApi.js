@@ -8,7 +8,7 @@ const {
   TOGGL_CLIENT_ID
 } = process.env
 
-const api = axios.create({
+export default axios.create({
   baseURL: TOGGL_REPORTS_BASE_URL,
   auth: {
     username: TOGGL_TOKEN,
@@ -20,5 +20,3 @@ const api = axios.create({
     client_ids: TOGGL_CLIENT_ID
   }
 })
-
-export default api

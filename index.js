@@ -1,8 +1,8 @@
 import program from 'commander'
 import { readFile } from 'fs/promises'
-import parseInput from './src/parseInput'
-import pushEntries from './src/pushEntries'
 import fetchReport from './src/api/fetchReport'
+import pushEntries from './src/api/pushEntries'
+import parseInput from './src/parseInput'
 
 program
   .version('1.0.0')

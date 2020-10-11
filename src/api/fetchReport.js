@@ -14,7 +14,11 @@ export default (date) => {
       spinner.succeed()
       return parsedResponse.data
     })
-    .catch(e => {
-      spinner.fail(e.message)
+    .catch(error => {
+      spinner.fail(error.message)
+      if (error.response) {
+        console.log(error.response.data)
+      }
+      console.log(error.config)
     })
 }
