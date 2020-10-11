@@ -10,7 +10,7 @@ Create transformation configration file:
 {
   "toggl": {
     "workspace_id": "1475595",
-    "client_id": "50020693"
+    "project_id": "163534412"
   },
   "clockify": {
     "workspace_id": "5f7e1b0d2bcbc7438ea333b8",
@@ -42,15 +42,12 @@ npm start -- push toggl-report.json
 - [x] fetch Toggl time entries
 - [x] replace `node-fetch` by axios
 - [x] warn about no entries
-- [ ] consolidate `.env` and `config.json` files
-  - [ ] separate connection and transformation configruation
-  - [ ] use `.env` for connection variables
-  - [ ] use config file for transformation configration
-  - [ ] replace client id by project id
-  - [ ] use [js-yaml](https://github.com/nodeca/js-yaml) to load yaml
-  - [ ] move config file from repo
+- [x] consolidate `.env` and `config.json` files
+  - [x] separate connection and transformation configruation
+  - [x] use `.env` for connection variables
+  - [x] use config file for transformation configration
+  - [x] replace client id by project id
 - [ ] pass Toggl time entries to Clockify push
-
 - [ ] add possibility to omit date
   - if no date provided:
     1. fetch the user timezone
@@ -58,9 +55,11 @@ npm start -- push toggl-report.json
 - [ ] skip non-billable entries
   - [ ] make that configurable
 - [ ] extract tag to task functionality to config script
+- [ ] read config file in runtime
+  - [ ] use [js-yaml](https://github.com/nodeca/js-yaml) to load yaml
+  - [ ] move config file from repo
 - [ ] non-functional
   - [ ] improve rate limiting (search "rate limiting rxjs")
   - [ ] create interceptor for error in both APIs
     - [rethrow](https://www.peterbe.com/plog/chainable-catches-in-a-promise)
   - [ ] create interceptor for spinner
--

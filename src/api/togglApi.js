@@ -18,6 +18,6 @@ export default axios.create({
   params: {
     user_agent: TOGGL_USER_AGENT,
     workspace_id: toggl.workspace_id,
-    client_ids: toggl.client_id
+    project_ids: toggl.project_id
   }
 })

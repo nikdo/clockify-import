@@ -1,7 +1,7 @@
 {
   "toggl": {
     "workspace_id": "toggl_wid",
-    "client_id": "toggl_cid"
+    "project_id": "toggl_pid"
   },
   "clockify": {
     "workspace_id": "clockify_wid",
