@@ -1,10 +1,8 @@
-import dotenv from 'dotenv'
 import program from 'commander'
 import { readFile } from 'fs/promises'
 import parseInput from './src/parseInput'
 import pushEntries from './src/pushEntries'
-
-dotenv.config()
+import fetchReport from './src/api/fetchReport'
 
 program
   .version('1.0.0')
@@ -23,14 +21,11 @@ program
   })
 
 program
-  .command('fetch [date]')
+  .command('fetch <date>')
   .description('fetch time entries from Toggl')
   .action(date => {
-    if (date) {
-      console.log(date)
-    } else {
-      console.log('today')
-    }
+    fetchReport(date)
+      .then(entries => console.log(JSON.stringify(entries, undefined, '  ')))
   })
 
 program.parse(process.argv)

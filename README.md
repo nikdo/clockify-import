@@ -2,17 +2,13 @@
 
 Imports Toggl tasks into Clockify. Transforms Toggl tags to Clockify tasks.
 
-Use [`.env.template`](./.env.template) to create `.env` file for target Clockify project.
+Configure transformation by creating `.env` file from [`.env.template`](./.env.template).
 
-Get Toggl report:
+Get Toggl report for a specific date:
 
+```sh
+npm start --silent -- fetch 2020-10-10 > toggl-report.json
 ```
-GET https://api.track.toggl.com/reports/api/v2/details?workspace_id={workspaceId}&since={sinceDate}&until={untilDate}&user_agent={togglUserAgent}&client_ids={clientIds}&billable=true'
-```
-
-Pay attention to the [`total_count`](https://github.com/toggl/toggl_api_docs/blob/master/reports/detailed.md#response) property in the response and fetch all pages if needed.
-
-Save response(s) to a file(s).
 
 Push report entries to Clockify:
 
@@ -22,7 +18,20 @@ npm start -- push toggl-report.json
 
 ## TODO
 
+- [x] push Toggl reports JSON file to Clockify time entries
+- [x] fetch Toggl time entries
+- [ ] replace `node-fetch` by axios
+- [ ] pass Toggl time entries to Clockify push
+- [ ] add possibility to omit date
+  - if no date provided:
+    1. fetch the user timezone
+    2. use `moment-timezone` to identify what date is yesterday in that timezone
+- [ ] consolidate `.env` and `config.json` files
+  - separate connection and transformation configruation
+  - use `.env` for connection variables
+  - use yaml file for transformation configration
+  - use [js-yaml](https://github.com/nodeca/js-yaml) to load yaml
 - [ ] skip non-billable entries
+  - [ ] make that configurable
 - [ ] improve rate limiting
     - [ ] search for proper solution: "rate limiting rxjs"
-- [ ] consolidate `.env` and `config.json` files
