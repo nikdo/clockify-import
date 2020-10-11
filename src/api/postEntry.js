@@ -1,11 +1,11 @@
 import ora from 'ora'
+import config from '../../config.json'
 import clockifyApi from './clockifyApi'
 
 export default clockifyEntry => {
-  const { CLOCKIFY_WORKSPACE_ID } = process.env
   const spinner = ora(clockifyEntry.description).start()
   return clockifyApi.post(
-    `/workspaces/${CLOCKIFY_WORKSPACE_ID}/time-entries`,
+    `/workspaces/${config.clockify.workspace_id}/time-entries`,
     clockifyEntry
   )
     .then(storedEntry => {
