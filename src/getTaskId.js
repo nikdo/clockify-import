@@ -1,6 +1,4 @@
-import config from '../config.json'
-
-export default tags => {
+export default config => tags => {
   if (tags.includes('dev')) {
     return config.clockify.tasks.Development
   } else if (tags.includes('ux') || tags.includes('pm')) {

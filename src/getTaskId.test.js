@@ -1,22 +1,25 @@
-import config from '../config.json'
 import getTaskId from './getTaskId'
 
 it('returns Development task id given dev tag', () => {
-  expect(getTaskId(['investigation', 'dev']))
-    .toEqual(config.clockify.tasks.Development)
+  const config = { clockify: { tasks: { Development: 'dev42' } } }
+  expect(getTaskId(config)(['investigation', 'dev']))
+    .toEqual('dev42')
 })
 
 it('returns Design task id given ux tag', () => {
-  expect(getTaskId(['learning', 'ux']))
-    .toEqual(config.clockify.tasks.Design)
+  const config = { clockify: { tasks: { Design: 'design42' } } }
+  expect(getTaskId(config)(['learning', 'ux']))
+    .toEqual('design42')
 })
 
 it('returns Design task id given pm tag', () => {
-  expect(getTaskId(['grooming', 'pm']))
-    .toEqual(config.clockify.tasks.Design)
+  const config = { clockify: { tasks: { Design: 'design42' } } }
+  expect(getTaskId(config)(['grooming', 'pm']))
+    .toEqual('design42')
 })
 
 it('returns Non-development task id given no ux and dev tags', () => {
-  expect(getTaskId(['administrative']))
-    .toEqual(config.clockify.tasks['Non-development'])
+  const config = { clockify: { tasks: { 'Non-development': 'misc42' } } }
+  expect(getTaskId(config)(['administrative']))
+    .toEqual('misc42')
 })

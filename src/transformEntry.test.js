@@ -1,25 +1,21 @@
-import sinon from 'sinon'
 import input from './test/input.json'
 import output from './test/output.json'
+import config from './test/config'
 import transformEntry from './transformEntry'
 
-const sandbox = sinon.createSandbox()
-
-beforeEach(() => {
-  sandbox.stub(process, 'env').value({ CLOCKIFY_PROJECT_ID: 'foo' })
-})
-
-afterEach(() => {
-  sandbox.restore()
-})
-
 it('transforms entry', () => {
-  expect(transformEntry(input)).toEqual(output)
+  expect(transformEntry(config)(input)).toEqual(output)
 })
 
-it('sets clockify project ID from env variable', () => {
-  sandbox.stub(process, 'env').value({ CLOCKIFY_PROJECT_ID: 'xy42' })
-  expect(transformEntry(input))
+it('sets clockify project ID from config', () => {
+  const projectIdConfig = {
+    ...config,
+    clockify: {
+      ...config.clockify,
+      project_id: 'xy42'
+    }
+  }
+  expect(transformEntry(projectIdConfig)(input))
     .toHaveProperty('projectId', 'xy42')
 })
 
@@ -28,7 +24,7 @@ it('keeps description', () => {
     ...input,
     description: 'Doing pushups'
   }
-  expect(transformEntry(togglEntry))
+  expect(transformEntry(config)(togglEntry))
     .toHaveProperty('description', 'Doing pushups')
 })
 
@@ -37,7 +33,7 @@ it('transforms billable', () => {
     ...input,
     is_billable: true
   }
-  expect(transformEntry(togglEntry))
+  expect(transformEntry(config)(togglEntry))
     .toHaveProperty('billable', 'true')
 })
 
@@ -46,7 +42,7 @@ it('transforms start time to UTC', () => {
     ...input,
     start: '2020-10-07T18:30:05+02:00'
   }
-  expect(transformEntry(togglEntry))
+  expect(transformEntry(config)(togglEntry))
     .toHaveProperty('start', '2020-10-07T16:30:05.000Z')
 })
 
@@ -55,6 +51,6 @@ it('transforms end time to UTC', () => {
     ...input,
     end: '2020-10-07T18:30:05+02:00'
   }
-  expect(transformEntry(togglEntry))
+  expect(transformEntry(config)(togglEntry))
     .toHaveProperty('end', '2020-10-07T16:30:05.000Z')
 })

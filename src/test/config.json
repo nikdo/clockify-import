@@ -1,0 +1,15 @@
+{
+  "toggl": {
+    "workspace_id": "toggl_wid",
+    "client_id": "toggl_cid"
+  },
+  "clockify": {
+    "workspace_id": "clockify_wid",
+    "project_id": "clockify_pid",
+    "tasks": {
+      "Design": "design42",
+      "Development": "dev42",
+      "Non-development": "misc42"
+    }
+  }
+}
