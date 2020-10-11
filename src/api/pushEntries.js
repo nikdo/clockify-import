@@ -8,6 +8,11 @@ const { concatMap, delay } = operators
 const rateLimit = 1.1 * 1000 / 10
 
 export default clockifyEntries => {
+  if (clockifyEntries.length) {
+    console.log(`Pushing ${clockifyEntries.length} entries to Clockify:`)
+  } else {
+    console.log('No entries to import.')
+  }
   from(clockifyEntries)
     .pipe(concatMap(entry =>
       of(postEntry(entry)).pipe(delay(rateLimit))
