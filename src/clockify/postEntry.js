@@ -1,6 +1,6 @@
 import ora from 'ora'
 import config from '../../config.json'
-import clockifyApi from './clockifyApi'
+import clockifyApi from './api'
 
 export default clockifyEntry => {
   const spinner = ora(clockifyEntry.description).start()

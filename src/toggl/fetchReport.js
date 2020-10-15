@@ -1,5 +1,5 @@
 import ora from 'ora'
-import togglApi from './togglApi'
+import togglApi from './api'
 
 export default (date) => {
   const spinner = ora(`Fetching time entries on ${date}`).start()

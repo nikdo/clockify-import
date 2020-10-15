@@ -1,7 +1,7 @@
 import program from 'commander'
 import { readFile } from 'fs/promises'
-import fetchReport from './src/api/fetchReport'
-import pushEntries from './src/api/pushEntries'
+import fetchReport from './src/toggl/fetchReport'
+import pushEntries from './src/clockify/pushEntries'
 import parseEntries from './src/parseEntries'
 
 program
