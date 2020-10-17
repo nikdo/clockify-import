@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from 'moment-timezone'
 import getTaskId from './getTaskId'
 
 // eslint-disable-next-line camelcase

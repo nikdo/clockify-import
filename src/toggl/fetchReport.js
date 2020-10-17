@@ -1,24 +1,20 @@
 import ora from 'ora'
-import togglApi from './api'
+import { reportsApi } from './api'
 
 export default (date) => {
   const spinner = ora(`Fetching time entries on ${date}`).start()
-  return togglApi.get('/details', {
+  return reportsApi.get('/details', {
     params: {
       since: date,
       until: date,
       billable: true
     }
   })
-    .then(parsedResponse => {
+    .then(data => {
       spinner.succeed()
-      return parsedResponse.data
+      return data
     })
     .catch(error => {
       spinner.fail(error.message)
-      if (error.response) {
-        console.log(error.response.data)
-      }
-      console.log(error.config)
     })
 }

@@ -22,7 +22,7 @@
     "axios": "^0.20.0",
     "commander": "^6.1.0",
     "dotenv": "^8.2.0",
-    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.31",
     "ora": "^5.1.0",
     "rxjs": "^6.6.3"
   }

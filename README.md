@@ -28,10 +28,8 @@ npm start -- push toggl-report.json
 
 ## TODO
 
-- [ ] add possibility to omit date
-  - if no date provided:
-    1. fetch the user timezone
-    2. use `moment-timezone` to identify what date is yesterday in that timezone
+- [ ] validate input date
+- [ ] use keywords "today" and "yesterday"
 - [ ] skip non-billable entries
   - [ ] make that configurable
 - [ ] extract tag to task functionality to config script

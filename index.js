@@ -3,6 +3,9 @@ import { readFile } from 'fs/promises'
 import fetchReport from './src/toggl/fetchReport'
 import pushEntries from './src/clockify/pushEntries'
 import parseEntries from './src/parseEntries'
+import resolveYesterday from './src/toggl/resolveYesterday'
+
+const parseDate = async inputDate => inputDate ?? await resolveYesterday()
 
 program
   .version('1.0.0')
@@ -10,21 +13,24 @@ program
   .description('Imports Toggl tasks into Clockify.')
 
 program
-  .command('sync <date>')
+  .command('sync [date]')
   .description('sync time entries')
   .action(date => {
-    fetchReport(date)
+    parseDate(date)
+      .then(fetchReport)
       .then(parseEntries)
       .then(pushEntries)
       .catch(console.error)
   })
 
 program
-  .command('fetch <date>')
+  .command('fetch [date]')
   .description('fetch time entries from Toggl')
   .action(date => {
-    fetchReport(date)
+    parseDate(date)
+      .then(fetchReport)
       .then(report => console.log(JSON.stringify(report, undefined, '  ')))
+      .catch(console.error)
   })
 
 program

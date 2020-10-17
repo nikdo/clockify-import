@@ -10,13 +10,9 @@ export default clockifyEntry => {
   )
     .then(storedEntry => {
       spinner.succeed()
-      return storedEntry.data
+      return storedEntry
     })
     .catch(error => {
       spinner.fail(error.message)
-      if (error.response) {
-        console.log(error.response.data)
-      }
-      console.log(error.config)
     })
 }
