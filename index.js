@@ -1,16 +1,20 @@
 import program from 'commander'
 import { readFile } from 'fs/promises'
+import parseDate from './src/parseDate'
 import fetchReport from './src/toggl/fetchReport'
 import pushEntries from './src/clockify/pushEntries'
 import parseEntries from './src/parseEntries'
-import resolveYesterday from './src/toggl/resolveYesterday'
 
-const parseDate = async inputDate => inputDate ?? await resolveYesterday()
+const description =
+`Imports Toggl tasks into Clockify.
+
+Specify dates in absolute or relative formats:
+2020-10-10, yesterday, friday, "last wed"`
 
 program
   .version('1.0.0')
   .usage('command')
-  .description('Imports Toggl tasks into Clockify.')
+  .description(description)
 
 program
   .command('sync [date]')

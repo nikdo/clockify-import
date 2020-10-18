@@ -28,8 +28,8 @@ npm start -- push toggl-report.json
 
 ## TODO
 
-- [ ] validate input date
-- [ ] use keywords "today" and "yesterday"
+- [ ] create [cli package](https://www.twilio.com/blog/how-to-build-a-cli-with-node-js)
+  - [ ] seek inspiration in [jest-cli](https://github.com/facebook/jest/tree/master/packages/jest-cli)
 - [ ] skip non-billable entries
   - [ ] make that configurable
 - [ ] extract tag to task functionality to config script
