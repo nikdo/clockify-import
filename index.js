@@ -11,6 +11,8 @@ const description =
 Specify dates in absolute or relative formats:
 2020-10-10, yesterday, friday, "last wed"`
 
+const logError = e => console.error('🤦🏻', e.message)
+
 program
   .version('1.0.0')
   .usage('command')
@@ -24,7 +26,7 @@ program
       .then(fetchReport)
       .then(parseEntries)
       .then(pushEntries)
-      .catch(console.error)
+      .catch(logError)
   })
 
 program
@@ -34,7 +36,7 @@ program
     parseDate(date)
       .then(fetchReport)
       .then(report => console.log(JSON.stringify(report, undefined, '  ')))
-      .catch(console.error)
+      .catch(logError)
   })
 
 program
@@ -45,7 +47,7 @@ program
       .then(data => JSON.parse(data))
       .then(parseEntries)
       .then(pushEntries)
-      .catch(console.error)
+      .catch(logError)
   })
 
 program.parse(process.argv)
