@@ -5,7 +5,7 @@ import postEntry from './postEntry'
 const { from, of } = rxjs
 const { concatMap, delay } = operators
 
-const rateLimit = 1.1 * 1000 / 10
+const rateLimit = 2 * 1000 / 10
 
 export default clockifyEntries => {
   if (clockifyEntries.length) {
