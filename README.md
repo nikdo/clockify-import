@@ -28,6 +28,8 @@ npm start -- push toggl-report.json
 
 ## TODO
 
+- [ ] OH! if somebody types "yesterday", does he mean current timezone yesterday?
+  - [ ] if it is a script running on server
 - [ ] create [cli package](https://www.twilio.com/blog/how-to-build-a-cli-with-node-js)
   - [ ] seek inspiration in [jest-cli](https://github.com/facebook/jest/tree/master/packages/jest-cli)
 - [ ] skip non-billable entries
